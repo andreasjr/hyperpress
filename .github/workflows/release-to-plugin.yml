@@ -1,0 +1,19 @@
+name: Create plugin
+on:
+  release:
+    types:
+      - published
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Zip Folder
+      run: rm -f -r -d -v .git .github .gitignore; cd ../; zip -r ${{ github.event.repository.name }}-${{ github.event.release.tag_name }}.zip .; mv ${{ github.event.repository.name }}-${{ github.event.release.tag_name }}.zip ./${{ github.event.repository.name }}
+    - name: Zip and Release
+      uses: softprops/action-gh-release@v1
+      if: startsWith(github.ref, 'refs/tags/')
+      with:
+        files: ${{ github.event.repository.name }}-${{ github.event.release.tag_name }}.zip
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
