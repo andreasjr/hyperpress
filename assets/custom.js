@@ -7,4 +7,7 @@ document.addEventListener('htmx:afterRequest', function(evt) {
 	const htmlElement = document.querySelector('html');
     htmlElement.style.overflow = 'unset';
 	htmlElement.classList.remove('has-modal-open');
+
+	let load_event = new Event("load"); 
+	window.dispatchEvent(load_event);
 });
