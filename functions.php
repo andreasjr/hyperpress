@@ -3,8 +3,8 @@
  * Plugin Name:       HyperPress
  * Plugin URI:        https://andreasjr.com/projects/hyperpress
  * Description:       A drop in solution to provide HTMX technologies for Gutenberg and Block Based themes.
- * Version:           0.1.1
- * Requires at least: 7.2
+ * Version:           0.1.2
+ * Requires at least: 6.3
  * Requires PHP:      7.2
  * Author:            Andreas Reif
  * Author URI:        https://andreasjr.com/
